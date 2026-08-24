@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE-Practice-Test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="greTest.js"></script>
+</head>
+<body>
+    <header>
 
+        <div class="test">
+            <h1 class="test-title">GRE Practice Test</h1>
+
+            <span></span>
+            <button id="quit" class="button-bar">Quit</button>
+            <button id="end-section" class="button-bar">End Sec.</button>
+            <button id="mark" class="button-bar">Mark</button>
+            <button id="review" class="button-bar">Review</button>
+            <button id="previous" class="button-bar">Prev</button>
+            <button id="next" class="button-bar">Next</button>
+        </div>
+
+        <div class="time-area">
+            <p id="question-number"></p>
+            <button id="hide" class="button-hide">Hide</button>
+            <p class="time">
+               <span>Time Remaining</span>
+               <span id="timer">20:00</span> 
+            </p>
+
+        </div>
+    </header>
+
+    <h1>Gre Sample Question</h1>
+    <p id="question">Q</p>
+    <p id="instruction"></p>
+    <p id="choices"></p>
+
+    <div id="modal" class="modal">
+        <h1>Review List</h1>
+        <button id="review-question"></button>
+        <button id="closeReview">Close</button>
+    </div>
+    
+    
+</body>
+</html>
