@@ -19,7 +19,7 @@
 
         questions=[
             {
-                type: "sentence-equivqlence",
+                type: "SE",
                 question: "What is your name?",
                 instruction: "Select only one answer.",
                 choices:[
@@ -77,37 +77,58 @@
 
             questions.forEach((question, index)=>{
 
-                // Create Row
+            // CREATE ROW
+
                 const row = document.createElement("tr");
 
-                // Create Cells
+            // CREATE CELLS
+
                 const questionCell = document.createElement("td");
                 const statusCell = document.createElement("td");
                 const markCell = document.createElement("td");
 
-                //Put data inside the cells
-                questionCell.textContent = currentQuestion + 1;
+            // PUT DATA INSIDE THE CELLS
 
-                if(true){
-                    statusCell.textContent = "Answered";
+                questionCell.textContent = index + 1;
+
+            // ANSWER CELL LOGIC
+            
+
+                if(question.type === "SE"){
+                    if (answers[index].length >= 2) {
+                        statusCell.textContent = "Answered";
+                    }
+                    else{
+                        statusCell.textContent = "Not Answered";
+                    }
                 }
                 else{
-                    statusCell.textContent = "Not Answered";
+
+                    if(answers[index].length > 0){
+                        statusCell.textContent = "Answered";
+                    }
+                    else{
+                        statusCell.textContent = "Not Answered";
+                    }
                 }
 
-                if(markStatus[currentQuestion]){
+            // MARK CELL LOGIC
+
+                if(markStatus[index]){
                     markCell.textContent = "M";
                 }
                 else{
                     markCell.textContent = "";
                 }
 
-                // Put Cells inside the Row
+            // PUT CELLS INSIDE THE ROW
+
                 row.append(questionCell);
                 row.append(statusCell);
-                outerWidth.append(markCell);
+                row.append(markCell);
 
-                // Put row inside table
+            // PUT ROW INSIDE THE TABLE
+
                 tableBody.append(row);
             });
         }
