@@ -120,7 +120,7 @@
             // MARK CELL LOGIC
 
                 if(markStatus[index]){
-                    markCell.textContent = "M";
+                    markCell.textContent = "✓";
                 }
                 else{
                     markCell.textContent = "";
