@@ -1,5 +1,5 @@
         let currentQuestion = 0;
-        const modal = document.querySelector('#modal');
+        
 
         function nextQuestion(){
             currentQuestion++;
@@ -73,7 +73,9 @@
 
         function reviewTable() {
             const tableBody = document.querySelector('#review-table-body');
+            const modal = document.querySelector('#modal');
             tableBody.innerHTML = "";
+            modal.classList.remove("hidden");
 
             questions.forEach((question, index)=>{
 

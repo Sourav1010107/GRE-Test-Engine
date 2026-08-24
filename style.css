@@ -119,4 +119,15 @@ body{
     background-color: blanchedalmond;
 }
 
+.review-bttn-close{
+    margin-top: 5px;
+    margin-left: 20%;
+    background-color: blanchedalmond;
+    height: 30px;
+    width: 50px;
+    padding: 0 2px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid;
+}
+
 /*    END OF THE HEADER    */
