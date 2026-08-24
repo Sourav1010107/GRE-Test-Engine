@@ -127,6 +127,12 @@
                 row.append(statusCell);
                 row.append(markCell);
 
+            // Make entire row clickable
+            row.addEventListener("click",()=>{
+                currentQuestion = index;
+                renderQuestion();
+            });
+
             // PUT ROW INSIDE THE TABLE
 
                 tableBody.append(row);

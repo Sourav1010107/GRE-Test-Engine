@@ -91,4 +91,27 @@ body{
     display: none;
 }
 
+#review-table{
+    width: 40%;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+#review-table th{
+    border: 1px solid;
+    padding: 8px 12px;
+    text-align: left;
+    
+}
+
+#review-table td{
+    border: 1px solid;
+    padding: 8px 12px;
+    text-align: left;
+}
+#review-table tr:hover{
+    background-color: blanchedalmond;
+}
+
 /*    END OF THE HEADER    */
