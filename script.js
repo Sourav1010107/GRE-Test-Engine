@@ -74,8 +74,11 @@
         function reviewTable() {
             const tableBody = document.querySelector('#review-table-body');
             const modal = document.querySelector('#modal');
+            const mainPrompt = document.querySelector('#main-prompt');
+
             tableBody.innerHTML = "";
             modal.classList.remove("hidden");
+            mainPrompt.classList.add("hidden");
 
             questions.forEach((question, index)=>{
 
@@ -143,8 +146,10 @@
         }
 ////////////////////////////////////////////////
         function closeReview(){
+            const mainPrompt = document.querySelector('#main-prompt');
             const modal = document.querySelector('#modal');
             modal.classList.add("hidden");
+            mainPrompt.classList.remove("hidden");
         }
 
 
