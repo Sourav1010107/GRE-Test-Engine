@@ -137,6 +137,7 @@
                 currentQuestion = index;
                 renderQuestion();
                 modal.classList.add("hidden");
+                mainPrompt.classList.remove("hidden");
             });
 
             // PUT ROW INSIDE THE TABLE
