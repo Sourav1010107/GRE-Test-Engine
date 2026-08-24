@@ -75,7 +75,7 @@ body{
 
 /* Remaining time hide/show classList porp*/
 
-.hidden{
+.time-hide{
     color: black;
 }
 
@@ -85,11 +85,16 @@ body{
     background-color: yellow;
 }
 
-/* REVIEW WINDOW DISPLAY */
 
-.review-win-hidden{
+/*   HIDDEN CLASSLIST TO HIDE HTML ELEMENT */
+
+.hidden{
     display: none;
 }
+
+/* REVIEW WINDOW DISPLAY */
+
+
 
 #review-table{
     width: 40%;

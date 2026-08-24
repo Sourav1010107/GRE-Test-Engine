@@ -1,4 +1,5 @@
         let currentQuestion = 0;
+        const modal = document.querySelector('#modal');
 
         function nextQuestion(){
             currentQuestion++;
@@ -70,7 +71,6 @@
                  // REVIEW WINDOW //
 
 
-
         function reviewTable() {
             const tableBody = document.querySelector('#review-table-body');
             tableBody.innerHTML = "";
@@ -131,6 +131,7 @@
             row.addEventListener("click",()=>{
                 currentQuestion = index;
                 renderQuestion();
+                modal.classList.add("hidden");
             });
 
             // PUT ROW INSIDE THE TABLE
@@ -229,11 +230,11 @@
             timerStatus = !timerStatus;
             let timer = document.querySelector("#timer");
             if(timerStatus){
-                timer.classList.add("hidden");
+                timer.classList.add("time-hide");
                 document.querySelector('#hide').innerHTML ="Show";
             }
             else{
-                timer.classList.remove("hidden");
+                timer.classList.remove("time-hide");
                 document.querySelector('#hide').innerHTML ="Hide";
             }
 
