@@ -94,7 +94,9 @@ body{
 
 /* REVIEW WINDOW DISPLAY */
 
-
+#modal{
+    margin-left: 5%;
+}
 
 #review-table{
     width: 40%;
@@ -135,3 +137,10 @@ body{
 }
 
 /*    END OF THE HEADER    */
+
+
+/*          MAIN PROMPT                */
+
+#main-prompt{
+    margin-left: 5%;
+}
