@@ -69,8 +69,47 @@
 ////////////////////////////////////////////////////////////////
                  // REVIEW WINDOW //
 
-        function reviewWindow() {
-            let reviewWindow = 0;
+
+
+        function reviewTable() {
+            const tableBody = document.querySelector('#review-table-body');
+            tableBody.innerHTML = "";
+
+            questions.forEach((question, index)=>{
+
+                // Create Row
+                const row = document.createElement("tr");
+
+                // Create Cells
+                const questionCell = document.createElement("td");
+                const statusCell = document.createElement("td");
+                const markCell = document.createElement("td");
+
+                //Put data inside the cells
+                questionCell.textContent = currentQuestion + 1;
+
+                if(true){
+                    statusCell.textContent = "Answered";
+                }
+                else{
+                    statusCell.textContent = "Not Answered";
+                }
+
+                if(markStatus[currentQuestion]){
+                    markCell.textContent = "M";
+                }
+                else{
+                    markCell.textContent = "";
+                }
+
+                // Put Cells inside the Row
+                row.append(questionCell);
+                row.append(statusCell);
+                outerWidth.append(markCell);
+
+                // Put row inside table
+                tableBody.append(row);
+            });
         }
 
 
@@ -190,10 +229,12 @@
 
 
 
+
             document.querySelector('#next').onclick = nextQuestion;
             document.querySelector('#previous').onclick = previousQuestion;
             document.querySelector('#hide').onclick = toggleTime;
             document.querySelector('#mark').onclick = markQuestion;
+            document.querySelector('#review').onclick = reviewTable;
         }
 
 
