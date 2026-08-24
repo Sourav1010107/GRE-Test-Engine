@@ -145,7 +145,9 @@
                 tableBody.append(row);
             });
         }
-////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
         function closeReview(){
             const mainPrompt = document.querySelector('#main-prompt');
             const modal = document.querySelector('#modal');
