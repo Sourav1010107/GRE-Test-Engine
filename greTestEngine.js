@@ -1,0 +1,213 @@
+        let currentQuestion = 0;
+
+        function nextQuestion(){
+            currentQuestion++;
+            currentQuestion = Math.min(1, currentQuestion);
+            renderQuestion();
+        }
+
+        function previousQuestion(){
+            currentQuestion--;
+            currentQuestion = Math.max(0, currentQuestion);
+            renderQuestion();
+        }
+
+///////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////
+            // QUESTION OBJECT //
+
+        questions=[
+            {
+                type: "sentence-equivqlence",
+                question: "What is your name?",
+                instruction: "Select only one answer.",
+                choices:[
+                    "Amin", "Sabbir","Abir"
+                ]
+            },
+            {
+                type: "multiple",
+                question: "What is your age?",
+                instruction: "Select all that apply.",
+                choices:[
+                    "24", "23","32"
+                ]
+            }
+        ];
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+              // MARK FUNCTION //
+
+        let markStatus = questions.map(()=>false);
+
+        function markQuestion(){
+            markStatus[currentQuestion] = !markStatus[currentQuestion];
+             
+            markQuestionStatus();
+
+        }
+
+        function markQuestionStatus() {
+
+            const mark = document.querySelector('#mark');
+
+            if(markStatus[currentQuestion]){
+                mark.innerHTML = "Marked";
+                mark.classList.add("mark-active");
+             }
+             else{
+                mark.innerHTML = "Mark";
+                mark.classList.remove("mark-active");
+             }
+        }
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+                 // REVIEW WINDOW //
+
+        function reviewWindow() {
+            let reviewWindow = 0;
+        }
+
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+        const answers= questions.map(()=>[]);
+
+        //showing options for each question
+
+        function renderChoices(){
+
+            let container = document.querySelector('#choices');
+            container.innerHTML= "";
+
+            questions[currentQuestion].choices.forEach((choice)=>{
+                const checkbox = document.createElement('input');
+                const label = document.createElement('label');
+                const linebreak = document.createElement('br');
+
+                checkbox.type= "checkbox";
+                checkbox.value= choice;
+
+            // creating the checkbox element prop.
+
+                label.append(checkbox);
+                label.append(' '+ choice);
+
+            // loading the saved answers in the question paper
+
+                checkbox.checked = answers[currentQuestion].includes(choice);
+
+            // save the choice in the answer array
+
+                checkbox.addEventListener("change", ()=>{
+
+                    if(answers[currentQuestion].length >= 2){
+                        checkbox.checked = false;
+                    }
+                    if (checkbox.checked) {
+                        if (!answers[currentQuestion].includes(choice)) {
+                            answers[currentQuestion].push(choice);
+                        }
+                    }
+                    else{
+                        answers[currentQuestion] = answers[currentQuestion].filter(
+                            savedChoice => savedChoice != choice
+                        );
+                    }
+                      
+                });
+         
+
+            // add choices in the HTML element
+
+                container.append(label);
+                container.append(linebreak);
+
+            });
+        }
+
+/////////////////////////////////////////////////////////////////////////////////
+        //  START OF TIME UPDATATION   //
+/////////////////////////////////////////////////////////////////////////////////
+
+        let timeRemaining = 20*60;
+        let timerVisible = true; 
+
+        function timerUpdate() {
+            const minutes = Math.floor(timeRemaining/60);
+            const seconds = timeRemaining % 60;
+
+            document.querySelector("#timer").textContent = 
+            `${String(minutes).padStart(2, "0")}:` + `${String(seconds).padStart(2, "0")}`;
+
+            if (timeRemaining> 0 ){
+                timeRemaining--;
+            }
+        }
+
+
+////////////////////////////////////////////////////////////
+        //  HIDE OR SHOW REMAINING TIME  //
+/////////////////////////////////////////////////////////////
+
+        let timerStatus = false;
+
+        function toggleTime() {
+            timerStatus = !timerStatus;
+            let timer = document.querySelector("#timer");
+            if(timerStatus){
+                timer.classList.add("hidden");
+                document.querySelector('#hide').innerHTML ="Show";
+            }
+            else{
+                timer.classList.remove("hidden");
+                document.querySelector('#hide').innerHTML ="Hide";
+            }
+
+        }
+
+        // END OF TIME UPDATATION   //
+//////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////
+        //     START OF QUESTION RENDERING     //
+
+        function renderQuestion() {
+
+            document.querySelector('#question-number').innerHTML=`Question ${currentQuestion + 1} of  ${questions.length}`;
+            document.querySelector('#question').innerHTML= questions[currentQuestion].question;
+            document.querySelector('#instruction').innerHTML= questions[currentQuestion].instruction;
+            renderChoices();
+            markQuestionStatus();
+
+
+
+            document.querySelector('#next').onclick = nextQuestion;
+            document.querySelector('#previous').onclick = previousQuestion;
+            document.querySelector('#hide').onclick = toggleTime;
+            document.querySelector('#mark').onclick = markQuestion;
+        }
+
+
+           // END OF QUESTION RENDERING //
+///////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////
+          // BEGINING OF CONTENT LOADING //
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            renderQuestion();
+            timerUpdate();
+
+            setInterval(timerUpdate, 1000);
+
+        });
+        
