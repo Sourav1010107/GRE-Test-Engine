@@ -122,12 +122,16 @@ body{
 .review-bttn-close{
     margin-top: 5px;
     margin-left: 20%;
-    background-color: blanchedalmond;
+    background-color: white;
     height: 30px;
     width: 50px;
     padding: 0 2px;
     font-family: 'Courier New', Courier, monospace;
     border: 1px solid;
+}
+
+.review-bttn-close:hover{
+    background-color: blanchedalmond;
 }
 
 /*    END OF THE HEADER    */

@@ -141,6 +141,11 @@
                 tableBody.append(row);
             });
         }
+////////////////////////////////////////////////
+        function closeReview(){
+            const modal = document.querySelector('#modal');
+            modal.classList.add("hidden");
+        }
 
 
 ////////////////////////////////////////////////////////////////
@@ -265,6 +270,7 @@
             document.querySelector('#hide').onclick = toggleTime;
             document.querySelector('#mark').onclick = markQuestion;
             document.querySelector('#review').onclick = reviewTable;
+            document.querySelector('#close-Review').onclick = closeReview;
         }
 
 
