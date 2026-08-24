@@ -1,1 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body{
+    background-color: aliceblue;
+}
+
+/* START OF THE HEADER */
+
+.test{
+    display: flex;
+    height: 50px;
+    padding: 10px;
+    margin: 0px;
+    background-color: black;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.test-title{
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.button-bar{
+    background-color: rgb(186, 190, 190);
+    height: 40px;
+    width: 70px;
+    padding: 0 2px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 1px;
+    
+}
+
+      /* START OF THE TIME BAR */
+
+.time-area{
+    display: flex;
+    background-color: black;
+    height: 35px;
+    padding: 0 10px;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.button-hide{
+    background-color: rgb(186, 190, 190);
+    height: 30px;
+    padding: 0 5px;
+    font-family: 'Courier New', Courier, monospace;
+
+    
+}
+
+.time{
+    color: aliceblue;
+    font-size: small;
+}
+
+     /* END OF THE TIME BAR */
+
+
+#question-number{
+    color: aliceblue;
+    position: absolute;
+    margin-right: 50%;
+}
+
+/* Remaining time hide/show classList porp*/
+
+.hidden{
+    color: black;
+}
+
+/* MARK BUTTON BG COLOR ACTIVE STATUS */
+
+.mark-active{
+    background-color: yellow;
+}
+
+/* REVIEW WINDOW DISPLAY */
+
+.review-win-hidden{
+    display: none;
+}
+
+/*    END OF THE HEADER    */
