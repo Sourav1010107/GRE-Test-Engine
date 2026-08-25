@@ -18,61 +18,7 @@ function previousQuestion(){
 ///////////////////////////////////////////////////////////////////
             // QUESTION OBJECT //
 
-questions=[
-    {
-        type: "SE",
-        question: "What is your name?",
-        instruction: "Select only one answer.",
-        choices:[
-            "Amin", "Sabbir", "Abir"
-        ]
-    },
-    {
-        id: 2,
-        type: "multiple",
-        difficulty: "easy",
-        question: "What is your age?",
-        instruction: "Select all that apply.",
-        choices:[
-            "24", "23","32"
-        ]
-    },
-    {
-        id: 11,
-        type: "reading-single",
-        difficulty: "hard",
 
-        passage:
-            `Early studies of urban tree planting emphasized its aesthetic benefits. Trees, researchers argued, improved the visual character of 
-            densely built neighborhoods and therefore contributed indirectly to residents' well-being. More recent research has broadened this view by 
-            examining measurable environmental effects. Urban trees can reduce surface temperatures by providing shade and can absorb some airborne pollutants.
-
-            Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
-            substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
-            maintenance, resources that may be scarce in some cities.
-
-            These qualifications do not imply that urban planting programs are misguided. Rather, they suggest that policymakers should resist treating tree coverage 
-            as a universal solution. A program appropriate for a humid city with abundant rainfall may be poorly suited to an arid city facing severe water shortages. 
-            The relevant question, therefore, is not simply whether cities should plant more trees, but where, what kind, and under what environmental conditions.`,
-
-        question:
-            "Which of the following best describes the author's main argument?",
-
-        instruction: "Select one answer.",
-
-        maxSelections: 1,
-
-        choices: [
-            "Urban tree planting should be abandoned in cities with limited water.",
-            "The aesthetic benefits of urban trees are greater than their environmental benefits.",
-            "Urban tree-planting policies should account for local environmental conditions rather than follow a universal approach.",
-            "Researchers have exaggerated the ability of trees to absorb pollutants.",
-            "Cities should prioritize tree planting over other environmental policies."
-        ],
-
-        answer: [2]
-    }
-];
 
 ////////////////////////////////////////////////////////////////
 
@@ -137,7 +83,7 @@ function reviewTable() {
     // ANSWER CELL LOGIC
     
 
-        if(question.type === "SE"){
+        if(question.type === "sentence-equivalence"){
             if (answers[index].length >= 2) {
                 statusCell.textContent = "Answered";
             }
