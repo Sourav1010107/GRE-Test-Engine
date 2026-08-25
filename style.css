@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: aliceblue;
+    background-color: white;
 }
 
 /* START OF THE HEADER */
@@ -95,7 +95,7 @@ body{
 /* REVIEW WINDOW DISPLAY */
 
 #modal{
-    margin-left: 5%;
+    padding: 2%;
 }
 
 #review-table{
@@ -141,6 +141,25 @@ body{
 
 /*          MAIN PROMPT                */
 
-#main-prompt{
-    margin-left: 5%;
+.question-area{
+    display: flex;
+    background-color: white;
+    padding: 1%;
+    flex-direction: column;
+    gap: 20px;
+    
+    
 }
+/*
+#instruction{
+    display: flex;
+    height: 30px;
+    padding: 2%;
+    border: 1px solid;
+    margin: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    justify-content: center;
+    align-items: center;
+}
+*/

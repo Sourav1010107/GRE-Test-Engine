@@ -24,7 +24,7 @@
                 question: "What is your name?",
                 instruction: "Select only one answer.",
                 choices:[
-                    "Amin", "Sabbir","Abir"
+                    "Amin", "Sabbir", "Abir"
                 ]
             },
             {
