@@ -49,6 +49,23 @@ function markQuestionStatus() {
 }
 
 ////////////////////////////////////////////////////////////////
+                 // REVIEW NAVIGATION BAR //
+
+function goToquestion(){
+    const navBar = document.querySelector('#nav');
+    const reviewNav = document.querySelector('#review-nav');
+
+    navBar.classList.remove("hidden");
+    reviewNav.classList.add("hidden");
+
+    const mainPrompt = document.querySelector('#main-prompt');
+    const modal = document.querySelector('#modal');
+    const questionNum = document.querySelector('#question-number');
+
+    modal.classList.add("hidden");
+    mainPrompt.classList.remove("hidden");
+    questionNum.classList.remove("hidden");
+}
 
 ////////////////////////////////////////////////////////////////
                  // REVIEW WINDOW //
@@ -60,9 +77,19 @@ function reviewTable() {
     const modal = document.querySelector('#modal');
     const mainPrompt = document.querySelector('#main-prompt');
 
+    const navBar = document.querySelector('#nav');
+    const reviewNav = document.querySelector('#review-nav');
+
+    const questionNum = document.querySelector('#question-number');
+    questionNum.classList.add("hidden");
+
+
     tableBody.innerHTML = "";
     modal.classList.remove("hidden");
     mainPrompt.classList.add("hidden");
+
+    navBar.classList.add("hidden");
+    reviewNav.classList.remove("hidden");
 
     questions.forEach((question, index)=>{
 
@@ -120,8 +147,15 @@ function reviewTable() {
         row.addEventListener("click",()=>{
             currentQuestion = index;
             renderQuestion();
+
             modal.classList.add("hidden");
             mainPrompt.classList.remove("hidden");
+
+            navBar.classList.remove("hidden");
+            reviewNav.classList.add("hidden");
+
+            const questionNum = document.querySelector('#question-number');
+            questionNum.classList.remove("hidden");
         });
 
     // PUT ROW INSIDE THE TABLE
@@ -136,8 +170,17 @@ function reviewTable() {
 function closeReview(){
     const mainPrompt = document.querySelector('#main-prompt');
     const modal = document.querySelector('#modal');
+    const navBar = document.querySelector('#nav');
+    const reviewNav = document.querySelector('#review-nav');
+
     modal.classList.add("hidden");
     mainPrompt.classList.remove("hidden");
+
+    navBar.classList.remove("hidden");
+    reviewNav.classList.add("hidden");
+
+    const questionNum = document.querySelector('#question-number');
+    questionNum.classList.remove("hidden");
 }
 
 
@@ -200,9 +243,9 @@ function renderChoices(){
     });
 }
 
-/////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 //  START OF TIME UPDATATION   //
-/////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 
 let timeRemaining = 20*60;
 let timerVisible = true; 
@@ -241,11 +284,11 @@ function toggleTime() {
 }
 
 // END OF TIME UPDATATION   //
-//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 
 
-//////////////////////////////////////////////////////////////////////////////
-//     START OF QUESTION RENDERING     //
+//////////////////////////////////////////////////////////
+     //     START OF QUESTION RENDERING     //
 
 function renderQuestion() {
 
@@ -264,6 +307,7 @@ function renderQuestion() {
     document.querySelector('#mark').onclick = markQuestion;
     document.querySelector('#review').onclick = reviewTable;
     document.querySelector('#close-Review').onclick = closeReview;
+    document.querySelector('#go-question').onclick = goToquestion;
 }
 
 
