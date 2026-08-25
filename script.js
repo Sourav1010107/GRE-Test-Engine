@@ -3,7 +3,7 @@ let currentQuestion = 0;
 
 function nextQuestion(){
     currentQuestion++;
-    currentQuestion = Math.min(questions.length, currentQuestion);
+    currentQuestion = Math.min(questions.length-1, currentQuestion);
     renderQuestion();
 }
 
@@ -28,7 +28,9 @@ questions=[
         ]
     },
     {
+        id: 2,
         type: "multiple",
+        difficulty: "easy",
         question: "What is your age?",
         instruction: "Select all that apply.",
         choices:[
@@ -69,7 +71,7 @@ questions=[
         ],
 
         answer: [2]
-    },
+    }
 ];
 
 ////////////////////////////////////////////////////////////////
@@ -169,12 +171,12 @@ function reviewTable() {
         row.append(markCell);
 
     // Make entire row clickable
-    row.addEventListener("click",()=>{
-        currentQuestion = index;
-        renderQuestion();
-        modal.classList.add("hidden");
-        mainPrompt.classList.remove("hidden");
-    });
+        row.addEventListener("click",()=>{
+            currentQuestion = index;
+            renderQuestion();
+            modal.classList.add("hidden");
+            mainPrompt.classList.remove("hidden");
+        });
 
     // PUT ROW INSIDE THE TABLE
 
