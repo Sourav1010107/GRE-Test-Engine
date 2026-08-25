@@ -53,6 +53,7 @@ function renderChoices(){
     });
 }
 
+
 // SENTENCE EQUIVALENCE RENDERING
 
 function renderSentenceEquivalence(){
@@ -107,3 +108,41 @@ function renderSentenceEquivalence(){
 }
 
 
+// RENDERING TEXT-COMPLETION 
+
+function renderTextCompletion(){
+
+    let container = document.querySelector('#choices');
+    container.innerHTML= "";
+
+    questions[currentQuestion].choices.forEach((choice, index)=>{
+        const table = document.createElement('table');
+        const row = document.createElement('row');
+        const td = document.createElement('td');
+
+        td.textContent = choice;
+        row.append(td);
+        table.append(row);
+
+        row.addEventListener("change",()=>{
+            
+            currentQuestion = index;
+
+            if(answers[currentQuestion].length >= 2){
+                checkbox.checked = false;
+            }
+            if (checkbox.checked) {
+                if (!answers[currentQuestion].includes(choice)) {
+                    answers[currentQuestion].push(choice);
+                }
+            }
+            else{
+                answers[currentQuestion] = answers[currentQuestion].filter(
+                    savedChoice => savedChoice != choice
+                );
+            }
+               
+        });
+
+    });
+}
