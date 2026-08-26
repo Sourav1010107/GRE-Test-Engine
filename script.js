@@ -1,5 +1,3 @@
-let currentQuestion = 0;
-
 
 function nextQuestion(){
     currentQuestion++;

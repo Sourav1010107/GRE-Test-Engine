@@ -1,4 +1,5 @@
 
+let currentQuestion = 0;
 const answers= questions.map(()=>[]);
 
 
