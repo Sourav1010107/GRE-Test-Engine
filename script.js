@@ -45,21 +45,7 @@ function markQuestionStatus() {
 ///////////////////////////////////////////////
         // REVIEW NAVIGATION BAR //
 
-function goToquestion(){
-    const navBar = document.querySelector('#nav');
-    const reviewNav = document.querySelector('#review-nav');
 
-    navBar.classList.remove("hidden");
-    reviewNav.classList.add("hidden");
-
-    const mainPrompt = document.querySelector('#main-prompt');
-    const modal = document.querySelector('#modal');
-    const questionNum = document.querySelector('#question-number');
-
-    modal.classList.add("hidden");
-    mainPrompt.classList.remove("hidden");
-    questionNum.classList.remove("hidden");
-}
 
 /////////////////////////////////////////////////////
            // REVIEW WINDOW //
@@ -247,7 +233,7 @@ function renderQuestion() {
     document.querySelector('#mark').onclick = markQuestion;
     document.querySelector('#review').onclick = reviewTable;
     document.querySelector('#close-Review').onclick = closeReview;
-    document.querySelector('#go-question').onclick = goToquestion;
+    document.querySelector('#go-question').onclick = closeReview;
 }
 
 
