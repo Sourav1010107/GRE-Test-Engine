@@ -1,61 +1,46 @@
 
+//.....VARIABLES INITIALIZATION.....
+
 let currentQuestion = 0;
 const answers= questions.map(()=>[]);
+
+//.......NEXT QUESTION..........
+
+function nextQuestion(){
+    currentQuestion++;
+    currentQuestion = Math.min(questions.length-1, currentQuestion);
+    renderQuestion();
+}
+
+//.......PREVIOUS QUESTION.......... 
+
+function previousQuestion(){
+    currentQuestion--;
+    currentQuestion = Math.max(0, currentQuestion);
+    renderQuestion();
+}
+
+
+//........CHOICE RENDERING.........
 
 
 function renderChoices(){
 
-    let container = document.querySelector('#choices');
-    container.innerHTML= "";
+    if (questions[currentQuestion].type === "sentence-equivalence") {
+        renderSentenceEquivalence();
+    }
+    else if(questions[currentQuestion].type === "text-completion"){
+        renderTextCompletion();
+    }
+    else{
+        renderSentenceEquivalence();
+    }
 
-    questions[currentQuestion].choices.forEach((choice)=>{
-        const checkbox = document.createElement('input');
-        const label = document.createElement('label');
-        const linebreak = document.createElement('br');
-
-        checkbox.type= "checkbox";
-        checkbox.value= choice;
-
-    // creating the checkbox element prop.
-
-        label.append(checkbox);
-        label.append(' '+ choice);
-
-    // loading the saved answers in the question paper
-
-        checkbox.checked = answers[currentQuestion].includes(choice);
-
-    // save the choice in the answer array
-
-        checkbox.addEventListener("change", ()=>{
-
-            if(answers[currentQuestion].length >= 2){
-                checkbox.checked = false;
-            }
-            if (checkbox.checked) {
-                if (!answers[currentQuestion].includes(choice)) {
-                    answers[currentQuestion].push(choice);
-                }
-            }
-            else{
-                answers[currentQuestion] = answers[currentQuestion].filter(
-                    savedChoice => savedChoice != choice
-                );
-            }
-                
-        });
-    
-
-    // add choices in the HTML element
-
-        container.append(label);
-        container.append(linebreak);
-
-    });
 }
 
 
-// SENTENCE EQUIVALENCE RENDERING
+//...........SENTENCE EQUIVALENCE RENDERING..................
+
 
 function renderSentenceEquivalence(){
 
@@ -109,41 +94,48 @@ function renderSentenceEquivalence(){
 }
 
 
-// RENDERING TEXT-COMPLETION 
+//..........RENDERING TEXT-COMPLETION....................
+
 
 function renderTextCompletion(){
 
     let container = document.querySelector('#choices');
+    const table = document.createElement('table');
     container.innerHTML= "";
 
-    questions[currentQuestion].choices.forEach((choice, index)=>{
-        const table = document.createElement('table');
-        const row = document.createElement('row');
+    questions[currentQuestion].choices.forEach((choice)=>{
+        const row = document.createElement('tr');
         const td = document.createElement('td');
+        const label = document.createElement('label');
+        const radio = document.createElement('input');
 
-        td.textContent = choice;
+        radio.type = "radio";
+        radio.name = "blank 1";
+        radio.value = choice;
+
+        label.append(radio);
+        label.append(' '+ choice)
+
+        td.append(label);
         row.append(td);
         table.append(row);
 
-        row.addEventListener("change",()=>{
-            
-            currentQuestion = index;
+        // reload answer
 
-            if(answers[currentQuestion].length >= 2){
-                checkbox.checked = false;
-            }
-            if (checkbox.checked) {
-                if (!answers[currentQuestion].includes(choice)) {
-                    answers[currentQuestion].push(choice);
-                }
-            }
-            else{
-                answers[currentQuestion] = answers[currentQuestion].filter(
-                    savedChoice => savedChoice != choice
-                );
-            }
-               
+        if (answers[currentQuestion][0]=== choice) {
+            radio.checked = true;
+        }
+
+        // make entire row clickable and save answer
+
+        row.addEventListener("click", ()=>{
+            radio.checked = true;
+            answers[currentQuestion][0] = choice; // save answer
         });
+        
 
     });
+    table.classList.add("tc-table");
+    container.append(table);
+
 }

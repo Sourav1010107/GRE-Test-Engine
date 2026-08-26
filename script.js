@@ -1,19 +1,4 @@
 
-function nextQuestion(){
-    currentQuestion++;
-    currentQuestion = Math.min(questions.length-1, currentQuestion);
-    renderQuestion();
-}
-
-function previousQuestion(){
-    currentQuestion--;
-    currentQuestion = Math.max(0, currentQuestion);
-    renderQuestion();
-}
-
-
-//////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////////
             // MARK FUNCTION //
 

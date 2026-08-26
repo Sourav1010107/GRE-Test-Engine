@@ -177,3 +177,19 @@ body{
     align-items: center;
 }
 */
+
+.tc-table{
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+.tc-table td{
+    border: 1px solid;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.tc-table td:hover{
+    background-color: blanchedalmond;
+}
