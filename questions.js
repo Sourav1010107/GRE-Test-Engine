@@ -306,7 +306,7 @@ The relevant question, therefore, is not simply whether cities should plant more
 
     {
         id: 12,
-        type: "reading-multiple",
+        type: "reading-single",
         difficulty: "hard",
         passageRef: 11,
 
