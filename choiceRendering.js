@@ -32,6 +32,7 @@ function renderChoices(){
     else if(questions[currentQuestion].type === "text-completion"){
         renderTextCompletion();
     }
+
     else{
         renderSentenceEquivalence();
     }
@@ -55,16 +56,16 @@ function renderSentenceEquivalence(){
         checkbox.type= "checkbox";
         checkbox.value= choice;
 
-    // creating the checkbox element prop.
+        // creating the checkbox element prop.
 
         label.append(checkbox);
         label.append(' '+ choice);
 
-    // loading the saved answers in the question paper
+        // loading the saved answers in the question paper
 
         checkbox.checked = answers[currentQuestion].includes(choice);
 
-    // save the choice in the answer array
+        // save the choice in the answer array
 
         checkbox.addEventListener("change", ()=>{
 
@@ -85,7 +86,7 @@ function renderSentenceEquivalence(){
         });
     
 
-    // add choices in the HTML element
+        // add choices in the HTML element
 
         container.append(label);
         container.append(linebreak);
@@ -100,42 +101,54 @@ function renderSentenceEquivalence(){
 function renderTextCompletion(){
 
     let container = document.querySelector('#choices');
-    const table = document.createElement('table');
     container.innerHTML= "";
 
-    questions[currentQuestion].choices.forEach((choice)=>{
-        const row = document.createElement('tr');
-        const td = document.createElement('td');
-        const label = document.createElement('label');
-        const radio = document.createElement('input');
+    questions[currentQuestion].blanks.forEach((blank, index)=>{
 
-        radio.type = "radio";
-        radio.name = "blank 1";
-        radio.value = choice;
+        const table = document.createElement('table');
+        const  th =  document.createElement('th');
+        const hrow = document.createElement('tr');
 
-        label.append(radio);
-        label.append(' '+ choice)
+        th.textContent = `Blank ${index +1}`;
+        hrow.append(th);
+        table.append(hrow);
 
-        td.append(label);
-        row.append(td);
-        table.append(row);
+        blank.choices.forEach((choice)=>{
+            const row = document.createElement('tr');
+            const td = document.createElement('td');
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
 
-        // reload answer
+            radio.type = "radio";
+            radio.name = `Blank ${index +1}`;
+            radio.value = choice;
 
-        if (answers[currentQuestion][0]=== choice) {
-            radio.checked = true;
-        }
+            label.append(radio);
+            label.append(' '+ choice)
 
-        // make entire row clickable and save answer
+            td.append(label);
+            row.append(td);
+            table.append(row);
 
-        row.addEventListener("click", ()=>{
-            radio.checked = true;
-            answers[currentQuestion][0] = choice; // save answer
+            // reload answer
+
+            if (answers[currentQuestion][index]=== choice) {
+                radio.checked = true;
+            }
+
+            // make entire row clickable and save answer
+
+            row.addEventListener("click", ()=>{
+                radio.checked = true;
+                answers[currentQuestion][index] = choice; // save answer
+            });
+            
+
         });
-        
 
+        table.classList.add("tc-table");
+        container.append(table);
     });
-    table.classList.add("tc-table");
-    container.append(table);
-
 }
+
+    

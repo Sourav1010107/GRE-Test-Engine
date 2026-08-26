@@ -12,14 +12,20 @@ const questions = [
             "Although the scientist was initially skeptical of the new theory, the abundance of supporting evidence eventually made her ______ it.",
         instruction: "Select one answer.",
         maxSelections: 1,
-        choices: [
-            "reject",
-            "accept",
-            "ignore",
-            "conceal",
-            "misrepresent"
+        blanks: [
+            {
+                id: 1,
+                choices: [
+                    "reject",
+                    "accept",
+                    "ignore",
+                    "conceal",
+                    "misrepresent"
+                ]
+            }
         ],
-        answer: [1]
+        answer: [0]
+        
     },
 
     {
@@ -30,12 +36,17 @@ const questions = [
             "The professor's lectures were anything but ______; even difficult theoretical concepts became engaging through his vivid examples and unexpected humor.",
         instruction: "Select one answer.",
         maxSelections: 1,
-        choices: [
-            "tedious",
-            "systematic",
-            "controversial",
-            "concise",
-            "informative"
+        blanks: [
+            {
+                id: 1,
+                choices: [
+                    "tedious",
+                    "systematic",
+                    "controversial",
+                    "concise",
+                    "informative"
+                ]
+            }
         ],
         answer: [0]
     },
@@ -48,19 +59,24 @@ const questions = [
             "Because the historian regarded sweeping explanations with suspicion, her account of the revolution is deliberately ______, emphasizing local circumstances rather than proposing a single universal cause.",
         instruction: "Select one answer.",
         maxSelections: 1,
-        choices: [
-            "dogmatic",
-            "nuanced",
-            "polemical",
-            "predictive",
-            "reductive"
+        blanks: [
+            {
+                id: 1,
+                choices: [
+                    "dogmatic",
+                    "nuanced",
+                    "polemical",
+                    "predictive",
+                    "reductive"
+                ]
+            }
         ],
         answer: [1]
     },
 
     {
         id: 4,
-        type: "text-completion-double",
+        type: "text-completion",
         difficulty: "medium",
         question:
             "The committee's report was initially praised for its (i) ______ analysis, but critics later argued that several of its conclusions rested on (ii) ______ assumptions.",
@@ -73,7 +89,6 @@ const questions = [
                     "superficial",
                     "erratic"
                 ],
-                answer: 0
             },
             {
                 id: 2,
@@ -82,14 +97,14 @@ const questions = [
                     "empirical",
                     "transparent"
                 ],
-                answer: 0
             }
-        ]
+        ],
+        answer: [0, 0]
     },
 
     {
         id: 5,
-        type: "text-completion-triple",
+        type: "text-completion",
         difficulty: "hard",
         question:
             "Far from being (i) ______, the novelist's style is deliberately restrained; yet this apparent simplicity can be (ii) ______, since beneath the plain language lies a remarkably (iii) ______ network of allusions.",
@@ -102,7 +117,6 @@ const questions = [
                     "lucid",
                     "economical"
                 ],
-                answer: 0
             },
             {
                 id: 2,
@@ -111,7 +125,6 @@ const questions = [
                     "refreshing",
                     "predictable"
                 ],
-                answer: 0
             },
             {
                 id: 3,
@@ -120,9 +133,9 @@ const questions = [
                     "limited",
                     "obvious"
                 ],
-                answer: 0
             }
-        ]
+        ],
+        answer: [0, 0, 0]
     },
 
 

@@ -179,7 +179,9 @@ body{
 */
 
 .tc-table{
+    display: inline;
     border-collapse: collapse;
+    padding: 5px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
 }
