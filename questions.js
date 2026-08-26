@@ -366,7 +366,8 @@ The relevant question, therefore, is not simply whether cities should plant more
         passage:
             `A museum recently extended its opening hours by two hours each evening. Attendance subsequently increased by 15 
             percent. Museum administrators concluded that the extended hours caused the increase and therefore proposed 
-            remaining open even later. However, during the same period the museum opened a highly publicized exhibition that attracted visitors from across the region.`,
+            remaining open even later. However, during the same period the museum opened a highly publicized exhibition that 
+            attracted visitors from across the region.`,
 
         question:
             "Which of the following most seriously weakens the administrators' conclusion?",
