@@ -19,6 +19,8 @@ function previousQuestion(){
     currentQuestion = Math.max(0, currentQuestion);
     renderQuestion();
 }
+//.......QUESTION RENDERING........
+
 
 
 //........CHOICE RENDERING.........

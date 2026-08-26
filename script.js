@@ -194,7 +194,18 @@ function toggleTime() {
 
 // END OF TIME UPDATATION   //
 //////////////////////////////////////////////////////////
+//........CHOOSE QUESTION ENVIRONMENT.............
 
+function questionEnv() {
+
+    const passage =document.querySelector('#passage');
+
+    if (questions[currentQuestion].type === "reading-single") {
+        passage.classList.remove("hidden");
+    } else {
+        passage.classList.add("hidden");
+    }
+}
 
 //////////////////////////////////////////////////////////
      //     START OF QUESTION RENDERING     //
@@ -204,6 +215,7 @@ function renderQuestion() {
     document.querySelector('#question-number').innerHTML=`Question ${currentQuestion + 1} of  ${questions.length}`;
     document.querySelector('#question').innerHTML= questions[currentQuestion].question;
     document.querySelector('#instruction').innerHTML= questions[currentQuestion].instruction;
+    questionEnv();
     renderChoices();
     markQuestionStatus();
 
