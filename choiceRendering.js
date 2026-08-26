@@ -32,7 +32,9 @@ function renderChoices(){
     else if(questions[currentQuestion].type === "text-completion"){
         renderTextCompletion();
     }
-
+    else if(questions[currentQuestion].type === "reading-single"){
+        renderReadingPassage();
+    }
     else{
         renderSentenceEquivalence();
     }
@@ -46,7 +48,9 @@ function renderChoices(){
 function renderSentenceEquivalence(){
 
     let container = document.querySelector('#choices');
+    let containerPassage = document.querySelector('#passage');
     container.innerHTML= "";
+    containerPassage.innerHTML = "";
 
     questions[currentQuestion].choices.forEach((choice)=>{
         const checkbox = document.createElement('input');
@@ -95,13 +99,15 @@ function renderSentenceEquivalence(){
 }
 
 
-//..........RENDERING TEXT-COMPLETION....................
+//.....RENDERING TEXT-COMPLETION.......
 
 
 function renderTextCompletion(){
 
     let container = document.querySelector('#choices');
+    let containerPassage = document.querySelector('#passage');
     container.innerHTML= "";
+    containerPassage.innerHTML = "";
 
     questions[currentQuestion].blanks.forEach((blank, index)=>{
 
@@ -150,5 +156,55 @@ function renderTextCompletion(){
         container.append(table);
     });
 }
+
+//......READING PASSAGE.......
+
+function renderReadingPassage(){
+
+    let containerChoice = document.querySelector('#choices');
+    let containerPassage = document.querySelector('#passage');
+
+    containerPassage.innerHTML = "";
+    containerChoice.innerHTML = "";
+
+    questions[currentQuestion].choices.forEach((choice)=>{
+
+        const label = document.createElement('label');
+        const radio = document.createElement('input');
+        const linebreak = document.createElement('br');
+
+        radio.type = "radio";
+        radio.name = "passage";
+        radio.value = choice;
+
+        label.append(radio);
+        label.append(' '+ choice);
+
+        containerChoice.append(label);
+        containerChoice.append(linebreak);
+
+        // reload answer
+
+        if (answers[currentQuestion] === choice) {
+            radio.checked = true;
+        }
+
+        // save answer
+
+        radio.addEventListener("click", ()=>{
+            radio.checked = true;
+            answers[currentQuestion] = choice; // save answer
+        });
+        
+    });
+
+    // loading reference passage
+
+    const loadingquestionNo = questions[currentQuestion].passageRef-1;
+
+    containerPassage.innerHTML = questions[loadingquestionNo].passage;
+
+}
+
 
     
