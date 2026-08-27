@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////
             // MARK FUNCTION //
 
@@ -195,6 +194,7 @@ function toggleTime() {
 // END OF TIME UPDATATION   //
 //////////////////////////////////////////////////////////
 //........CHOOSE QUESTION ENVIRONMENT.............
+
 function questionEnv() {
 
     const passageContainer = document.querySelector(".passage-container");
@@ -207,7 +207,9 @@ function questionEnv() {
 
         // Make question area 80%
         questionContainer.style.flex = "none";
-        questionContainer.style.width = "80%";
+        questionContainer.style.width = "100%";
+        questionContainer.style.padding = "0 5%";
+
 
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0 3%";
@@ -220,6 +222,8 @@ function questionEnv() {
         // Return to two equal columns
         questionContainer.style.width = "";
         questionContainer.style.flex = "4";
+        questionContainer.style.padding = "0 0";
+
 
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0";
