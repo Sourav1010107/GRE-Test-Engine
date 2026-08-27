@@ -184,7 +184,7 @@ body{
 }
 
 .tc-table td{
-    font-size: large;
+    font-size: 20px;
     border: 1px solid;
     padding: 8px 10px;
     text-align: left;
