@@ -160,22 +160,31 @@ body{
 .question-area{
     display: flex;
     gap: 30px;
+    height: calc(100vh - 125px);
+    overflow: hidden;
+}
+ 
+.question-container{
+    flex: 4;
+    padding: 10px;
+    min-width: 0;
 }
 
-.passage-container, 
-.question-container{
-    flex: 1;
+.passage-container{
+    flex: 6;
+    height: 100%;
     padding: 10px;
+    min-width: 0;
+    overflow: hidden;
 }
 
 #passage{
-    height: 80vh;
+    height: 100%;
     overflow-y: auto;
 
     line-height: 1.5;
     font-size: 20px;
-    padding: 15px;
-    
+    padding: 15px;   
 }
 
 
