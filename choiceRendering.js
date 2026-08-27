@@ -149,8 +149,7 @@ function renderTextCompletion(){
             row.addEventListener("click", ()=>{
                 radio.checked = true;
                 answers[currentQuestion][index] = choice; // save answer
-            });
-            
+            });           
 
         });
 

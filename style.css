@@ -178,10 +178,11 @@ body{
 .tc-table{
     display: inline;
     border-collapse: collapse;
-    padding: 5px;
+    padding: 1.5%;
 }
 
 .tc-table td{
+    font-size: large;
     border: 1px solid;
     padding: 8px 10px;
     text-align: left;
@@ -193,28 +194,24 @@ body{
 
 #instruction{
     display: flex;
-    font-size: 20px;
+    font-size: medium;
     padding: 10px;
     border: 1px solid;
     margin: 2px 2px;
-    font-size: medium;
     justify-content: flex-start;
     align-items: center;
 }
 
 #question{
     display: flex;
-    font-size: 20px;
+    font-size: large;
     padding: 10px;
-    font-size: medium;
     justify-content: flex-start;
     align-items: center;
 }
 
 #choices{
+    font-size: large;
     padding: 10px;
-    font-size: 20px;
-    gap: 10px;
-    
-    
+
 }
