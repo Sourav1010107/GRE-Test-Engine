@@ -196,7 +196,7 @@ body{
 
 #instruction{
     display: flex;
-    font-size: medium;
+    font-size: 16px;
     padding: 10px;
     border: 1px solid;
     margin: 2px 2px;
@@ -206,14 +206,14 @@ body{
 
 #question{
     display: flex;
-    font-size: large;
+    font-size: 20px;
     padding: 10px;
     justify-content: flex-start;
     align-items: center;
 }
 
 #choices{
-    font-size: large;
+    font-size: 20px;
     padding: 10px;
 
 }
