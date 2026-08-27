@@ -219,7 +219,7 @@ function questionEnv() {
 
         // Return to two equal columns
         questionContainer.style.width = "";
-        questionContainer.style.flex = "1";
+        questionContainer.style.flex = "4";
 
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0";
