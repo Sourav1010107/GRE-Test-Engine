@@ -169,7 +169,7 @@ body{
 }
 
 #passage{
-    height: 500px;
+    height: 80vh;
     overflow-y: auto;
     font-size: 20px;
     padding: 15px;

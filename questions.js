@@ -274,11 +274,12 @@ const questions = [
         passageRef: 11,
 
         passage:
-            `Early studies of urban tree planting emphasized its aesthetic benefits. Trees, researchers argued, improved the visual character of 
+            `<h3>Long Passage</h3>
+            <p>Early studies of urban tree planting emphasized its aesthetic benefits. Trees, researchers argued, improved the visual character of 
             densely built neighborhoods and therefore contributed indirectly to residents' well-being. More recent research has broadened this view by 
-            examining measurable environmental effects. Urban trees can reduce surface temperatures by providing shade and can absorb some airborne pollutants.
+            examining measurable environmental effects. Urban trees can reduce surface temperatures by providing shade and can absorb some airborne pollutants.</p>
 
-Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
+<p>Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
 substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
 maintenance, resources that may be scarce in some cities.
 
@@ -292,15 +293,15 @@ maintenance, resources that may be scarce in some cities.
 
 Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
 substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
-maintenance, resources that may be scarce in some cities.
+maintenance, resources that may be scarce in some cities.</p>
 
-Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
+<p>Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
 substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
 maintenance, resources that may be scarce in some cities.
 
 These qualifications do not imply that urban planting programs are misguided. Rather, they suggest that policymakers should resist treating tree coverage 
 as a universal solution. A program appropriate for a humid city with abundant rainfall may be poorly suited to an arid city facing severe water shortages. 
-The relevant question, therefore, is not simply whether cities should plant more trees, but where, what kind, and under what environmental conditions.`,
+The relevant question, therefore, is not simply whether cities should plant more trees, but where, what kind, and under what environmental conditions.</p>`,
 
         question:
             "Which of the following best describes the author's main argument?",
