@@ -282,6 +282,22 @@ Nevertheless, enthusiasm for large-scale planting programs has occasionally exce
 substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
 maintenance, resources that may be scarce in some cities.
 
+Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
+substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
+maintenance, resources that may be scarce in some cities.
+
+Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
+substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
+maintenance, resources that may be scarce in some cities.
+
+Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
+substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
+maintenance, resources that may be scarce in some cities.
+
+Nevertheless, enthusiasm for large-scale planting programs has occasionally exceeded the evidence supporting them. The cooling effects of trees vary 
+substantially according to species, climate, soil conditions, and the spatial arrangement of vegetation. Moreover, trees themselves require water and 
+maintenance, resources that may be scarce in some cities.
+
 These qualifications do not imply that urban planting programs are misguided. Rather, they suggest that policymakers should resist treating tree coverage 
 as a universal solution. A program appropriate for a humid city with abundant rainfall may be poorly suited to an arid city facing severe water shortages. 
 The relevant question, therefore, is not simply whether cities should plant more trees, but where, what kind, and under what environmental conditions.`,
