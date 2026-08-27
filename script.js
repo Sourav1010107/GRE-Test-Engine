@@ -213,8 +213,12 @@ function questionEnv() {
         const env1 = document.querySelector('#question-box');
         env1.style.padding = "10px";
 
+
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0 3%";
+
+
+
 
     }
 }
