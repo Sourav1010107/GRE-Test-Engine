@@ -195,25 +195,38 @@ function toggleTime() {
 // END OF TIME UPDATATION   //
 //////////////////////////////////////////////////////////
 //........CHOOSE QUESTION ENVIRONMENT.............
-
 function questionEnv() {
 
-    const passage =document.querySelector('#passage');
+    const passageContainer = document.querySelector(".passage-container");
+    const questionContainer = document.querySelector(".question-container");
 
-    if (questions[currentQuestion].type === "reading-single") {
-        passage.classList.remove("hidden");
+    if (questions[currentQuestion].type !== "reading-single") {
 
-        const envChoice = document.querySelector('#choices');
-        envChoice.style.margin = "0";
+        // Hide passage
+        passageContainer.style.display = "none";
 
-    } else {
-        passage.classList.add("hidden");
+        // Make question area 80%
+        questionContainer.style.flex = "none";
+        questionContainer.style.width = "80%";
 
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0 3%";
 
+    } else {
+
+        // Show passage
+        passageContainer.style.display = "";
+
+        // Return to two equal columns
+        questionContainer.style.width = "";
+        questionContainer.style.flex = "1";
+
+        const envChoice = document.querySelector('#choices');
+        envChoice.style.margin = "0";
+
     }
 }
+
 
 //////////////////////////////////////////////////////////
      //     START OF QUESTION RENDERING     //
