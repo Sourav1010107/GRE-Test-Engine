@@ -202,23 +202,15 @@ function questionEnv() {
 
     if (questions[currentQuestion].type === "reading-single") {
         passage.classList.remove("hidden");
-        const env1 = document.querySelector('#question-box');
-        env1.style.padding = "10px";
 
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0";
 
     } else {
         passage.classList.add("hidden");
-        const env1 = document.querySelector('#question-box');
-        env1.style.padding = "10px";
-
 
         const envChoice = document.querySelector('#choices');
         envChoice.style.margin = "0 3%";
-
-
-
 
     }
 }
