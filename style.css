@@ -171,6 +171,8 @@ body{
 #passage{
     height: 80vh;
     overflow-y: auto;
+
+    line-height: 1.5;
     font-size: 20px;
     padding: 15px;
     
@@ -214,6 +216,7 @@ body{
 
 #choices{
     font-size: 20px;
+    line-height: 1.5;
     padding: 10px;
 
 }
