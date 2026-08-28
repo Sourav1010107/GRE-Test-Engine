@@ -1,32 +1,7 @@
 
-//.....VARIABLES INITIALIZATION.....
-
-let currentQuestion = 0;
-const answers= questions.map(()=>[]);
-
-//.......NEXT QUESTION..........
-
-function nextQuestion(){
-    currentQuestion++;
-    currentQuestion = Math.min(questions.length-1, currentQuestion);
-    renderQuestion();
-}
-
-//.......PREVIOUS QUESTION.......... 
-
-function previousQuestion(){
-    currentQuestion--;
-    currentQuestion = Math.max(0, currentQuestion);
-    renderQuestion();
-}
-
-
-
-//.......QUESTION RENDERING........
-
-
-
-//........CHOICE RENDERING.........
+//--------------------------
+//       CHOICES  
+//--------------------------
 
 
 function renderChoices(){
@@ -47,7 +22,9 @@ function renderChoices(){
 }
 
 
-//...........SENTENCE EQUIVALENCE RENDERING..................
+//----------------------------------
+//       SENTENCE EQUIVALENCE  
+//----------------------------------
 
 
 function renderSentenceEquivalence(){
@@ -104,8 +81,9 @@ function renderSentenceEquivalence(){
 }
 
 
-//.....RENDERING TEXT-COMPLETION.......
-
+//------------------------------
+//       TEXT-COMPLETION
+//------------------------------
 
 function renderTextCompletion(){
 
@@ -161,7 +139,10 @@ function renderTextCompletion(){
     });
 }
 
-//......READING PASSAGE.......
+
+//------------------------------
+//    READING PASSAGE
+//------------------------------
 
 function renderReadingPassage(){
 

@@ -8,6 +8,18 @@ body{
     background-color: white;
 }
 
+#start-section{
+    height: 50px;
+    width: 130px;
+    background-color: aquamarine;
+    border: 1px solid;
+    margin: 100px 250px;
+}
+
+#start-section:hover{
+    background-color: blanchedalmond;
+}
+
 /* START OF THE HEADER */
 
 .nav-bar{
@@ -75,7 +87,7 @@ body{
 
 .time{
     color: aliceblue;
-    font-size: small;
+    font-size: medium;
 }
 
      /* END OF THE TIME BAR */
@@ -226,5 +238,4 @@ body{
     font-size: 20px;
     line-height: 1.5;
     padding: 10px;
-
 }
