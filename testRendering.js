@@ -7,7 +7,7 @@ let currentQuestion = 0;
 let timerVisible = true;
 let timerStatus = false;
 let questions, answers;
-let timeRemaining;
+let timeRemaining, timer;
 let markStatus;
 
 
@@ -24,25 +24,25 @@ const greTest = {
 
         {
             name: "Verbal Reasoning 1",
-            time: 11,
+            time: 1080,
             set_name: verbalSection1
         },
 
         {
             name: "Quantitative Reasoning 1",
-            time: 5,
+            time: 1260,
             set_name: quantSection1
         },
 
         {
             name: "Verbal Reasoning 2",
-            time: 5,
+            time: 1380,
             set_name: verbalSection2
         },
 
         {
             name: "Quantitative Reasoning 2",
-            time: 5,
+            time: 1560,
             set_name: quantSection2
         }
 
@@ -76,22 +76,36 @@ function previousQuestion(){
 //     TIME UPDATE
 //-------------------------
 
-function timerUpdate() {
+
+function timerDisplay(){
     const minutes = Math.floor(timeRemaining/60);
     const seconds = timeRemaining % 60;
 
     document.querySelector("#timer").textContent = 
-    `${String(minutes).padStart(2, "0")}:` + `${String(seconds).padStart(2, "0")}`;
+    `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
-    if (timeRemaining> 0 ){
+}
+
+
+function timerUpdate() {
+
+    if (timeRemaining > 0) {
         timeRemaining--;
+        timerDisplay();
     }
-    
-
     //end section condition
-    if(timeRemaining === 0){
-        renderTest();
+    if(timeRemaining <= 0){
+        clearInterval(timer);
+        timer = null;
         currentSection++;
+
+        if (currentSection >= greTest.sections.length) {
+            finishTest();
+            return;
+        }
+
+        renderTest();
+        return;
     }
 }
 
@@ -267,8 +281,7 @@ function renderTest() {
     const startSection = document.querySelector('#start-section');
     startSection.classList.remove("hidden");
 
-    // clock resetting
-    timeRemaining = greTest.sections[currentSection].time;
+    
 
     document.querySelector('#start-section').onclick =renderSection;
 
@@ -295,11 +308,21 @@ function renderSection() {
     
     
     currentQuestion = 0;
+    timeRemaining = greTest.sections[currentSection].time;
     questions = greTest.sections[currentSection].set_name;
     answers = questions.map(()=>[]);
     markStatus = questions.map(()=>false);
+    
+
+    //--------START TIMER-------
+
+    if (timer) {
+        clearInterval(timer);
+    }
+    timer = setInterval(timerUpdate, 1000);
 
     renderQuestion();
+    
 
 }
 
@@ -371,10 +394,17 @@ function renderQuestion() {
     document.querySelector('#review').onclick = reviewTable;
     document.querySelector('#close-Review').onclick = closeReview;
     document.querySelector('#go-question').onclick = closeReview;
+
+    document.querySelector('#quit').onclick = finishTest;
+    document.querySelector('#end-section').onclick = finishSection;
+    document.querySelector('#quit-r').onclick = finishTest;
+    document.querySelector('#end-section-r').onclick = finishSection;
 }
 
 
-
+//--------------------------------------
+//     FINISH SECTION AND QUIT TEST ?
+//--------------------------------------
 
 function finishSection() {
 
@@ -389,15 +419,13 @@ function finishSection() {
 
 function nextSection() {
     currentSection++;
-
-    renderSection();
+    renderTest();
 }
 
 
 function finishTest() {
 
-    console.log("GRE test completed");
-    console.log(answers);
+    alert("Test Completed.");
 }
 
 //-----------------------------------
@@ -406,6 +434,5 @@ function finishTest() {
 
 document.addEventListener("DOMContentLoaded", ()=>{
     renderTest();
-    setInterval(timerUpdate, 1000);
 });
 
