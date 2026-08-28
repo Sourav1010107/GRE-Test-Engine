@@ -281,9 +281,11 @@ function renderTest() {
     const startSection = document.querySelector('#start-section');
     startSection.classList.remove("hidden");
 
+    if (currentSection != 0) {
+        document.querySelector('#start-section').innerHTML = "Next Section";
+    }
     
-
-    document.querySelector('#start-section').onclick =renderSection;
+    document.querySelector('#start-section').onclick = renderSection;
 
 }
 
@@ -425,6 +427,8 @@ function nextSection() {
 
 function finishTest() {
 
+    clearInterval(timer);
+    timer = null;
     alert("Test Completed.");
 }
 
