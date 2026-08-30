@@ -349,7 +349,7 @@ function renderQuantChoices() {
     // NUMERIC ENTRY
     // --------------------------------
 
-    else if (question.type === "numeric") {
+    else if (questions[currentQuestion].type === "numeric") {
 
         const input = document.createElement("input");
 
@@ -365,7 +365,7 @@ function renderQuantChoices() {
     // QUANTITATIVE COMPARISON
     // --------------------------------
 
-    else if (question.type === "comparison") {
+    else if (questions[currentQuestion].type === "comparison") {
 
         const choices = [
             "Quantity A is greater.",
