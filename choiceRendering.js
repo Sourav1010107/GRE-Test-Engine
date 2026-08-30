@@ -16,9 +16,8 @@ function renderChoices(){
         renderReadingPassage();
     }
     else{
-        renderSentenceEquivalence();
+        renderQuantChoices();
     }
-
 }
 
 
@@ -199,8 +198,11 @@ function renderquantQuestion(){
 
     let container = document.querySelector('#choices');
     let containerPassage = document.querySelector('#passage');
+    let containerImage = document.querySelector('#image');
+
     container.innerHTML= "";
     containerPassage.innerHTML = "";
+    containerImage.innerHTML = "";
 
     questions[currentQuestion].choices.forEach((choice)=>{
         const checkbox = document.createElement('input');
@@ -240,4 +242,152 @@ function renderquantQuestion(){
         container.append(linebreak);
 
     });
+}
+
+function renderQuantChoices() {
+
+    let container = document.querySelector('#choices');
+    let containerPassage = document.querySelector('#passage');
+    let containerImage = document.querySelector('#image');
+
+
+    container.innerHTML= "";
+    containerPassage.innerHTML = "";
+    containerImage.innerHTML = "";
+
+    const checkbox = document.createElement('input');
+    const label = document.createElement('label');
+    const linebreak = document.createElement('br');
+
+    // --------------------------------
+    // SINGLE ANSWER
+    // --------------------------------
+
+    if (questions[currentQuestion].type === "single") {
+
+        questions[currentQuestion].choices.forEach((choice)=>{
+            
+            checkbox.type= "checkbox";
+            checkbox.value= choice;
+
+            //creating the checkbox element prop.
+            label.append(checkbox);
+            label.append(' '+ choice);
+
+            //loading the saved answers in the question paper
+            checkbox.checked = answers[currentQuestion].includes(choice);
+
+            //save the choice in the answer array
+            checkbox.addEventListener("change", ()=>{
+
+                if(answers[currentQuestion].length >= 2){
+                    checkbox.checked = false;
+                }
+                if (checkbox.checked) {
+                    if (!answers[currentQuestion].includes(choice)) {
+                        answers[currentQuestion].push(choice);
+                    }
+                }
+                else{
+                    answers[currentQuestion] = answers[currentQuestion].filter(
+                        savedChoice => savedChoice != choice
+                    );
+                }              
+            });
+    
+            //add choices in the HTML element
+            container.append(label);
+            container.append(linebreak);
+        });
+    }
+
+
+    // --------------------------------
+    // MULTIPLE ANSWERS
+    // --------------------------------
+
+    else if (questions[currentQuestion].type === "multiple") {
+
+        questions[currentQuestion].choices.forEach((choice)=>{
+
+            checkbox.type= "checkbox";
+            checkbox.value= choice;
+
+            //creating the checkbox element prop.
+            label.append(checkbox);
+            label.append(' '+ choice);
+
+            //loading the saved answers in the question paper
+            checkbox.checked = answers[currentQuestion].includes(choice);
+
+            //save the choice in the answer array
+            checkbox.addEventListener("change", ()=>{
+
+                if(answers[currentQuestion].length >= 2){
+                    checkbox.checked = false;
+                }
+                if (checkbox.checked) {
+                    if (!answers[currentQuestion].includes(choice)) {
+                        answers[currentQuestion].push(choice);
+                    }
+                }
+                else{
+                    answers[currentQuestion] = answers[currentQuestion].filter(
+                        savedChoice => savedChoice != choice
+                    );
+                }              
+            });
+    
+            //add choices in the HTML element
+            container.append(label);
+            container.append(linebreak);
+        });
+    }
+
+
+    // --------------------------------
+    // NUMERIC ENTRY
+    // --------------------------------
+
+    else if (question.type === "numeric") {
+
+        const input = document.createElement("input");
+
+        input.type = "text";
+        input.className = "numeric-input";
+        input.placeholder = "Enter your answer";
+
+        container.appendChild(input);
+    }
+
+
+    // --------------------------------
+    // QUANTITATIVE COMPARISON
+    // --------------------------------
+
+    else if (question.type === "comparison") {
+
+        const choices = [
+            "Quantity A is greater.",
+            "Quantity B is greater.",
+            "The two quantities are equal.",
+            "The relationship cannot be determined."
+        ];
+
+        choices.forEach((choice, index) => {
+
+            const label = document.createElement("label");
+
+            label.innerHTML = `
+                <input
+                    type="radio"
+                    name="answer"
+                    value="${index}"
+                >
+                <span>${choice}</span>
+            `;
+
+            container.appendChild(label);
+        });
+    }
 }
