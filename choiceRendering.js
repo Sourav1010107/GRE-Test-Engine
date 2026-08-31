@@ -206,9 +206,6 @@ function renderQuantChoices() {
     containerPassage.innerHTML = "";
     containerImage.innerHTML = "";
 
-    const checkbox = document.createElement('input');
-    const label = document.createElement('label');
-    const linebreak = document.createElement('br');
 
     // --------------------------------
     // SINGLE ANSWER
@@ -217,38 +214,34 @@ function renderQuantChoices() {
     if (questions[currentQuestion].type === "single") {
 
         questions[currentQuestion].choices.forEach((choice)=>{
-            
-            checkbox.type= "checkbox";
-            checkbox.value= choice;
 
-            //creating the checkbox element prop.
-            label.append(checkbox);
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
+            const linebreak = document.createElement('br');
+
+            radio.type = "radio";
+            radio.name = "comparison";
+            radio.value = choice;
+
+            label.append(radio);
             label.append(' '+ choice);
 
-            //loading the saved answers in the question paper
-            checkbox.checked = answers[currentQuestion].includes(choice);
-
-            //save the choice in the answer array
-            checkbox.addEventListener("change", ()=>{
-
-                if(answers[currentQuestion].length >= 2){
-                    checkbox.checked = false;
-                }
-                if (checkbox.checked) {
-                    if (!answers[currentQuestion].includes(choice)) {
-                        answers[currentQuestion].push(choice);
-                    }
-                }
-                else{
-                    answers[currentQuestion] = answers[currentQuestion].filter(
-                        savedChoice => savedChoice != choice
-                    );
-                }              
-            });
-    
-            //add choices in the HTML element
             container.append(label);
             container.append(linebreak);
+
+            // reload answer
+
+            if (answers[currentQuestion] === choice) {
+                radio.checked = true;
+            }
+
+            // save answer
+
+            radio.addEventListener("click", ()=>{
+                radio.checked = true;
+                answers[currentQuestion] = choice; // save answer
+            });
+        
         });
     }
 
@@ -260,6 +253,9 @@ function renderQuantChoices() {
     else if (questions[currentQuestion].type === "multiple") {
 
         questions[currentQuestion].choices.forEach((choice)=>{
+            const checkbox = document.createElement('input');
+            const label = document.createElement('label');
+            const linebreak = document.createElement('br');
 
             checkbox.type= "checkbox";
             checkbox.value= choice;
@@ -274,9 +270,6 @@ function renderQuantChoices() {
             //save the choice in the answer array
             checkbox.addEventListener("change", ()=>{
 
-                if(answers[currentQuestion].length >= 2){
-                    checkbox.checked = false;
-                }
                 if (checkbox.checked) {
                     if (!answers[currentQuestion].includes(choice)) {
                         answers[currentQuestion].push(choice);
@@ -306,9 +299,11 @@ function renderQuantChoices() {
 
         input.type = "text";
         input.className = "numeric-input";
-        input.placeholder = "Enter your answer";
+        input.placeholder = "  Enter Answer";
+        input.style.width = "110px";
+        input.style.height = "30px";
 
-        container.appendChild(input);
+        container.append(input);
     }
 
 
@@ -325,20 +320,35 @@ function renderQuantChoices() {
             "The relationship cannot be determined."
         ];
 
-        choices.forEach((choice, index) => {
+        choices.forEach((choice)=>{
 
-            const label = document.createElement("label");
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
+            const linebreak = document.createElement('br');
 
-            label.innerHTML = `
-                <input
-                    type="radio"
-                    name="answer"
-                    value="${index}"
-                >
-                <span>${choice}</span>
-            `;
+            radio.type = "radio";
+            radio.name = "comparison";
+            radio.value = choice;
 
-            container.appendChild(label);
+            label.append(radio);
+            label.append(' '+ choice);
+
+            container.append(label);
+            container.append(linebreak);
+
+            // reload answer
+
+            if (answers[currentQuestion] === choice) {
+                radio.checked = true;
+            }
+
+            // save answer
+
+            radio.addEventListener("click", ()=>{
+                radio.checked = true;
+                answers[currentQuestion] = choice; // save answer
+            });
+        
         });
     }
 }
