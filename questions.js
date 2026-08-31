@@ -442,7 +442,13 @@ The relevant question, therefore, is not simply whether cities should plant more
         instruction:
             "Select the two answer choices that complete the sentence and produce sentences that are alike in meaning.",
         maxSelections: 2,
-        
+        choices: [
+            "Quantity A is greater.",
+            "Quantity B is greater.",
+            "The two quantities are equal.",
+            "The relationship cannot be determined."
+        ],
+        image: "test.png",
         answer: [0, 2]
     }
 
@@ -1769,12 +1775,10 @@ The relevant question, therefore, is not simply whether cities should plant more
             "Select the two answer choices that complete the sentence and produce sentences that are alike in meaning.",
         maxSelections: 2,
         choices: [
-            "lucid",
-            "ambiguous",
-            "transparent",
-            "convoluted",
-            "evasive",
-            "cryptic"
+            "Quantity A is greater.",
+            "Quantity B is greater.",
+            "The two quantities are equal.",
+            "The relationship cannot be determined."
         ],
         image: "test.png",
         answer: [0, 2]

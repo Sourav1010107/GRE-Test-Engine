@@ -323,14 +323,7 @@ function renderQuantChoices() {
 
     else if (questions[currentQuestion].type === "comparison") {
 
-        const choices = [
-            "Quantity A is greater.",
-            "Quantity B is greater.",
-            "The two quantities are equal.",
-            "The relationship cannot be determined."
-        ];
-
-        choices.forEach((choice)=>{
+        questions[currentQuestion].choices.forEach((choice)=>{
 
             const label = document.createElement('label');
             const radio = document.createElement('input');
