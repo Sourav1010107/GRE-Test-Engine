@@ -435,22 +435,14 @@ The relevant question, therefore, is not simply whether cities should plant more
     },
     {
         id: 16,
-        type: "comparison",
+        type: "numeric",
         difficulty: "easy",
         question:
             "The mayor's explanation was so ______ that even her political opponents admitted that they understood precisely why the policy had been adopted.",
         instruction:
             "Select the two answer choices that complete the sentence and produce sentences that are alike in meaning.",
         maxSelections: 2,
-        choices: [
-            "lucid",
-            "ambiguous",
-            "transparent",
-            "convoluted",
-            "evasive",
-            "cryptic"
-        ],
-        image: "test.png",
+        
         answer: [0, 2]
     }
 

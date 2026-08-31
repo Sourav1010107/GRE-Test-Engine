@@ -226,14 +226,14 @@ function renderQuantChoices() {
             label.append(radio);
             label.append(' '+ choice);
 
-            container.append(label);
-            container.append(linebreak);
-
             // reload answer
 
             if (answers[currentQuestion] === choice) {
                 radio.checked = true;
             }
+
+            container.append(label);
+            container.append(linebreak);
 
             // save answer
 
@@ -264,6 +264,10 @@ function renderQuantChoices() {
             label.append(checkbox);
             label.append(' '+ choice);
 
+            //add choices in the HTML element
+            container.append(label);
+            container.append(linebreak);
+
             //loading the saved answers in the question paper
             checkbox.checked = answers[currentQuestion].includes(choice);
 
@@ -282,9 +286,7 @@ function renderQuantChoices() {
                 }              
             });
     
-            //add choices in the HTML element
-            container.append(label);
-            container.append(linebreak);
+            
         });
     }
 
@@ -299,11 +301,19 @@ function renderQuantChoices() {
 
         input.type = "text";
         input.className = "numeric-input";
-        input.placeholder = "  Enter Answer";
+        input.placeholder = " Enter Answer";
         input.style.width = "110px";
         input.style.height = "30px";
 
+        //load answer
+        input.value = answers[currentQuestion];
+
         container.append(input);
+
+        //save answer
+        input.addEventListener("input", ()=>{
+            answers[currentQuestion] = input.value;
+        });
     }
 
 
@@ -333,17 +343,15 @@ function renderQuantChoices() {
             label.append(radio);
             label.append(' '+ choice);
 
-            container.append(label);
-            container.append(linebreak);
-
             // reload answer
-
             if (answers[currentQuestion] === choice) {
                 radio.checked = true;
             }
 
-            // save answer
+            container.append(label);
+            container.append(linebreak);
 
+            // save answer
             radio.addEventListener("click", ()=>{
                 radio.checked = true;
                 answers[currentQuestion] = choice; // save answer
@@ -352,3 +360,4 @@ function renderQuantChoices() {
         });
     }
 }
+
